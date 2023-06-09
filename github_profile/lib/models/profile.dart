@@ -1,7 +1,13 @@
+import 'package:json_annotation/json_annotation.dart';
+
+part 'profile.g.dart';
+
+@JsonSerializable(createToJson: false)
 class GithubProfile {
   final String login;
   final String name;
   final String bio;
+  @JsonKey(name: 'avatar_url')
   final String avatarUrl;
 
   const GithubProfile({
@@ -11,10 +17,6 @@ class GithubProfile {
     required this.avatarUrl,
   });
 
-  factory GithubProfile.fromJson(Map<String, dynamic> json) => GithubProfile(
-        login: json["login"],
-        name: json["name"],
-        bio: json["bio"],
-        avatarUrl: json["avatar_url"],
-      );
+  factory GithubProfile.fromJson(Map<String, dynamic> json) =>
+      _$GithubProfileFromJson(json);
 }
