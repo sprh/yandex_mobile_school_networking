@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -27,7 +28,24 @@ class _BTCPriceWidgetState extends State<BTCPriceWidget> {
   }
 
   Future<void> _connect() async {
-    // TODO
+    webSocket = await WebSocket.connect(
+      websocketUrl,
+    );
+    subscription = webSocket?.listen(
+      (data) {
+        final json = jsonDecode(data) as Map<String, dynamic>;
+        final newPrice = double.parse(json[priceKey]);
+        if (price == null) {
+          priceColor = Colors.black;
+        } else if (newPrice > price!) {
+          priceColor = Colors.green;
+        } else {
+          priceColor = Colors.red;
+        }
+        price = newPrice;
+        setState(() {});
+      },
+    );
   }
 
   @override
