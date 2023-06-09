@@ -1,0 +1,33 @@
+name: github_profile
+description: A new Flutter project.
+publish_to: "none"
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.0.2 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+
+  ## http
+  http: ^1.0.0
+
+  ## dio
+  dio: ^5.2.0+1
+
+  ## json codegen
+  json_annotation: ^4.8.1
+
+dev_dependencies:
+  flutter_lints: ^2.0.0
+
+  ## json codegen
+  json_serializable: ^6.7.0
+
+  ## codegen
+  build_runner: ^2.4.5
+
+flutter:
+  uses-material-design: true
