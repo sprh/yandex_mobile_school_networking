@@ -11,7 +11,7 @@ class GithubProfileWidget extends StatefulWidget {
 }
 
 class _GithubProfileWidgetState extends State<GithubProfileWidget> {
-  final networkManager = const NetworkManager();
+  final networkManager = NetworkManager();
   GithubProfile? data;
 
   @override
